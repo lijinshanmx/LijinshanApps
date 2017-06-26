@@ -19,6 +19,7 @@ import com.lijinshan.singerdream.R;
 import com.lijinshan.singerdream.app.interf.ITranslucentStatusBar;
 
 import butterknife.BindView;
+import cn.bmob.v3.Bmob;
 
 /**
  * Created by lijinshan on 2017/6/23.
@@ -36,8 +37,12 @@ public abstract class MxBaseActivity<P extends IPresenter> extends BaseActivity<
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        //执行在initData之前
+        //第一：默认初始化
         super.onCreate(savedInstanceState);
         mActivity = this;
+        Bmob.initialize(this, "53f95fb3421e2da6c35c1051c1400163", "bmob");
+        initData2(savedInstanceState);
 
         String title = getIntent().getStringExtra("title");
         setTitle(title);
@@ -112,4 +117,11 @@ public abstract class MxBaseActivity<P extends IPresenter> extends BaseActivity<
             immersionBar.init();
         }
     }
+
+    @Override
+    public void initData(Bundle savedInstanceState) {
+
+    }
+
+    public abstract void initData2(Bundle savedInstanceState);
 }

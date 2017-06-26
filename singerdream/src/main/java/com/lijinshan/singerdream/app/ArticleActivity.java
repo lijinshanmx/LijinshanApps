@@ -24,7 +24,7 @@ public class ArticleActivity extends MxBaseActivity {
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
-    public void initData(Bundle savedInstanceState) {
+    public void initData2(Bundle savedInstanceState) {
         String title = getIntent().getStringExtra("title");
         String aid = getIntent().getStringExtra("aid");
 

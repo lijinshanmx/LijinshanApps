@@ -5,26 +5,28 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.jess.arms.base.BaseActivity;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.utils.UiUtils;
 import com.lijinshan.singerdream.R;
+import com.lijinshan.singerdream.base.MxBaseActivity;
 import com.lijinshan.singerdream.di.component.DaggerMainComponent;
 import com.lijinshan.singerdream.di.module.MainModule;
 import com.lijinshan.singerdream.mvp.contract.MainContract;
 import com.lijinshan.singerdream.mvp.presenter.MainPresenter;
 
+import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.SaveListener;
 
 import static com.jess.arms.utils.Preconditions.checkNotNull;
 
 
-public class MainActivity extends BaseActivity<MainPresenter> implements MainContract.View {
+public class MainActivity extends MxBaseActivity<MainPresenter> implements MainContract.View {
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -43,8 +45,22 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     }
 
     @Override
-    public void initData(Bundle savedInstanceState) {
+    public void initData2(Bundle savedInstanceState) {
 
+        BmobUser bu = new BmobUser();
+        bu.setUsername("lijinshan");
+        bu.setPassword("123456");
+        bu.setEmail("sendi@163.com");
+        bu.signUp(new SaveListener<BmobUser>() {
+            @Override
+            public void done(BmobUser s, BmobException e) {
+                if (e == null) {
+                    System.out.println("注册成功:" + s.toString());
+                } else {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
 
