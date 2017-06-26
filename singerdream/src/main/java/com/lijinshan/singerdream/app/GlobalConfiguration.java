@@ -167,27 +167,7 @@ public class GlobalConfiguration implements ConfigModule {
         lifecycles.add(new Application.ActivityLifecycleCallbacks() {
             @Override
             public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
-//                Timber.w(activity + " - onActivityCreated");
-//                //这里全局给Activity设置toolbar和title,你想象力有多丰富,这里就有多强大,以前放到BaseActivity的操作都可以放到这里
-//                if (activity.findViewById(R.id.toolbar) != null) {
-//                    if (activity instanceof AppCompatActivity) {
-//                        ((AppCompatActivity) activity).setSupportActionBar((Toolbar) activity.findViewById(R.id.toolbar));
-//                        ((AppCompatActivity) activity).getSupportActionBar().setDisplayShowTitleEnabled(false);
-//                    } else {
-//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//                            activity.setActionBar((android.widget.Toolbar) activity.findViewById(R.id.toolbar));
-//                            activity.getActionBar().setDisplayShowTitleEnabled(false);
-//                        }
-//                    }
-//                }
-//                if (activity.findViewById(R.id.toolbar_title) != null) {
-//                    ((TextView) activity.findViewById(R.id.toolbar_title)).setText(activity.getTitle());
-//                }
-//                if (activity.findViewById(R.id.toolbar_back) != null) {
-//                    activity.findViewById(R.id.toolbar_back).setOnClickListener(v -> {
-//                        activity.onBackPressed();
-//                    });
-//                }
+                Timber.w(activity + " - onActivityCreated");
             }
 
 

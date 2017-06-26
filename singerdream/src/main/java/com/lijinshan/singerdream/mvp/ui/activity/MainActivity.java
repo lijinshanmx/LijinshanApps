@@ -3,17 +3,16 @@ package com.lijinshan.singerdream.mvp.ui.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import com.jess.arms.base.BaseActivity;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.utils.UiUtils;
-
+import com.lijinshan.singerdream.R;
 import com.lijinshan.singerdream.di.component.DaggerMainComponent;
 import com.lijinshan.singerdream.di.module.MainModule;
 import com.lijinshan.singerdream.mvp.contract.MainContract;
 import com.lijinshan.singerdream.mvp.presenter.MainPresenter;
-
-import com.lijinshan.singerdream.R;
 
 
 import static com.jess.arms.utils.Preconditions.checkNotNull;
@@ -21,6 +20,12 @@ import static com.jess.arms.utils.Preconditions.checkNotNull;
 
 public class MainActivity extends BaseActivity<MainPresenter> implements MainContract.View {
 
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    }
 
     @Override
     public void setupActivityComponent(AppComponent appComponent) {

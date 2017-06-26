@@ -4,14 +4,21 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewStub;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.gyf.barlibrary.ImmersionBar;
 import com.jess.arms.base.BaseActivity;
+import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.mvp.IPresenter;
 import com.lijinshan.singerdream.R;
 import com.lijinshan.singerdream.app.interf.ITranslucentStatusBar;
+
+import butterknife.BindView;
 
 /**
  * Created by lijinshan on 2017/6/23.
@@ -20,11 +27,37 @@ import com.lijinshan.singerdream.app.interf.ITranslucentStatusBar;
 public abstract class MxBaseActivity<P extends IPresenter> extends BaseActivity<P> implements ITranslucentStatusBar {
 
     protected Activity mActivity;
+    @BindView(R.id.toolbar)
+    Toolbar mToolBar;
+    @BindView(R.id.toolbar_title)
+    TextView mToolBarTitle;
+    @BindView(R.id.toolbar_back)
+    ImageView mToolBarBack;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mActivity = this;
+
+        String title = getIntent().getStringExtra("title");
+        setTitle(title);
+        setSupportActionBar(mToolBar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        mToolBarBack.setOnClickListener(v -> {
+            this.finish();
+        });
+    }
+
+    @Override
+    public void setTitle(CharSequence title) {
+        super.setTitle(title);
+        if (!TextUtils.isEmpty(title)) {
+            mToolBarTitle.setText(title);
+        }
+    }
+
+    public void hideTitleBar() {
+        mToolBar.setVisibility(View.GONE);
     }
 
     @Override
@@ -36,6 +69,11 @@ public abstract class MxBaseActivity<P extends IPresenter> extends BaseActivity<
         vsContent.inflate();
         // status bar
         initTranslucentStatusBar(this);
+    }
+
+    @Override
+    public void setupActivityComponent(AppComponent appComponent) {
+
     }
 
     @Override

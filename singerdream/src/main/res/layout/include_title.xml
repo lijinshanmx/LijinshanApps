@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
-    android:layout_height="64dp"
+    android:layout_height="50dp"
     android:background="?attr/colorPrimary"
     app:contentInsetStart="0dp">
 
@@ -13,8 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
+        android:padding="15dp"
         android:src="@mipmap/ic_arrow_back_white_24dp" />
 
     <TextView
@@ -23,8 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textColor="#fff"
-        android:textSize="18dp"
-        tools:text="Singer" />
+        android:textSize="18dp" />
 
 
 </android.support.v7.widget.Toolbar>

@@ -11,6 +11,8 @@
         android:layout_height="0dp"
         android:background="@color/colorPrimary" />
 
+    <include layout="@layout/include_title" />
+
     <ViewStub
         android:id="@+id/ViewStubContentView"
         android:layout_width="match_parent"
