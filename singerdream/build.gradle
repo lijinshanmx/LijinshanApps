@@ -64,6 +64,7 @@ dependencies {
     compile rootProject.ext.dependencies["progressmanager"]
     compile rootProject.ext.dependencies["ImmersionBar"]
     compile rootProject.ext.dependencies["common-utils"]
+    compile rootProject.ext.dependencies["bmobSdk"]
     //view
     annotationProcessor(rootProject.ext.dependencies["butterknife-compiler"]) {
         exclude module: 'support-annotations'
