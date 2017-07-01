@@ -19,7 +19,9 @@ import com.lijinshan.singerdream.R;
 import com.lijinshan.singerdream.app.interf.ITranslucentStatusBar;
 
 import butterknife.BindView;
+import cn.bmob.push.BmobPush;
 import cn.bmob.v3.Bmob;
+import cn.bmob.v3.BmobInstallation;
 
 /**
  * Created by lijinshan on 2017/6/23.
@@ -37,20 +39,21 @@ public abstract class MxBaseActivity<P extends IPresenter> extends BaseActivity<
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        //执行在initData之前
-        //第一：默认初始化
         super.onCreate(savedInstanceState);
         mActivity = this;
         Bmob.initialize(this, "53f95fb3421e2da6c35c1051c1400163", "bmob");
+        // 使用推送服务时的初始化操作
+        BmobInstallation.getCurrentInstallation().save();
+        // 启动推送服务
+        BmobPush.startWork(this);
+
         initData2(savedInstanceState);
 
         String title = getIntent().getStringExtra("title");
         setTitle(title);
         setSupportActionBar(mToolBar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        mToolBarBack.setOnClickListener(v -> {
-            this.finish();
-        });
+        mToolBarBack.setOnClickListener(v -> this.finish());
     }
 
     @Override

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="15dp"
-    tools:context="com.lijinshan.singerdream.app.ArticleActivity">
+    tools:context="com.lijinshan.singerdream.app.activity.ArticleActivity">
 
     <com.lijinshan.singerdream.widget.jsbridge.BridgeWebView
         android:id="@+id/BridgeWebView"

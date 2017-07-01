@@ -88,6 +88,8 @@ ext {
             "ImmersionBar"             : "com.gyf.barlibrary:barlibrary:${version["ImmersionBarVersion"]}",
             "matisse"                  : "com.zhihu.android:matisse:${version["matisseVersion"]}",
             "common-utils"             : "com.luffykou:android-common-utils:1.1.3",
+
+            //bmob
             "bmobSdk"                  : "cn.bmob.android:bmob-sdk:${version["bmobSdkVersion"]}",
 
             //test
